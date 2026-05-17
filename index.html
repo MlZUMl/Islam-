@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>نور — Nour · Apprends l'Islam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#07090d;--bg2:#111620;--bg3:#181f2c;--bg4:#1e2838;
+  --gold:#c9942a;--gold2:#e8b84b;--gold3:#f5d07a;--glow:rgba(201,148,42,.26);
+  --green2:#2ec060;--teal2:#26b5d8;
+  --text:#ede0c8;--text2:#a0b2c6;--text3:#607282;
+  --bord:rgba(201,148,42,.2);--bord2:rgba(255,255,255,.07);
+  --red2:#e05040;--r:16px;--rs:10px;
+  --fs:1.05rem;--fsS:.93rem;--fsT:.8rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow:hidden;background:var(--bg0);font-family:"Tajawal",sans-serif;color:var(--text);touch-action:pan-y;}
+
+/* BG */
+#geo-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:var(--bg0);}
+#geo-bg::before{content:"";position:absolute;inset:0;z-index:1;
+  background:radial-gradient(ellipse 70% 40% at 50% 0%,rgba(201,148,42,.11) 0%,transparent 65%),
+             radial-gradient(ellipse 50% 50% at 100% 40%,rgba(26,92,110,.13) 0%,transparent 55%),
+             radial-gradient(ellipse 40% 50% at 0% 70%,rgba(30,107,60,.09) 0%,transparent 55%);}
+.gt{position:absolute;inset:0;opacity:.052;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%23c9942a' stroke-width='.8'%3E%3Cpolygon points='60,8 68,44 104,36 78,60 104,84 68,76 60,112 52,76 16,84 42,60 16,36 52,44'/%3E%3Cpolygon points='60,22 65,44 87,39 72,60 87,81 65,76 60,98 55,76 33,81 48,60 33,39 55,44'/%3E%3Cpolygon points='0,0 12,6 0,12 -12,6'/%3E%3Cpolygon points='120,0 132,6 120,12 108,6'/%3E%3Cpolygon points='0,120 12,126 0,132 -12,126'/%3E%3Cpolygon points='120,120 132,126 120,132 108,126'/%3E%3Cline x1='60' y1='8' x2='0' y2='0'/%3E%3Cline x1='60' y1='8' x2='120' y2='0'/%3E%3Cline x1='104' y1='36' x2='120' y2='0'/%3E%3Cline x1='104' y1='84' x2='120' y2='120'/%3E%3Cline x1='60' y1='112' x2='120' y2='120'/%3E%3Cline x1='60' y1='112' x2='0' y2='120'/%3E%3Cline x1='16' y1='84' x2='0' y2='120'/%3E%3Cline x1='16' y1='36' x2='0' y2='0'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:120px;}
+.gt2{position:absolute;inset:0;opacity:.022;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23e8b84b' stroke-width='.6'%3E%3Cpolygon points='40,5 47,26 70,26 52,40 59,61 40,48 21,61 28,40 10,26 33,26'/%3E%3Ccircle cx='40' cy='40' r='18'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3Cpath d='M0,20 Q20,0 40,0'/%3E%3Cpath d='M80,20 Q60,0 40,0'/%3E%3Cpath d='M0,60 Q20,80 40,80'/%3E%3Cpath d='M80,60 Q60,80 40,80'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:80px;transform:rotate(22.5deg) scale(1.5);}
+.gd{position:absolute;inset:0;}
+.gd::before{content:"☪";position:absolute;top:5%;right:4%;font-size:130px;color:rgba(201,148,42,.04);transform:rotate(-15deg);line-height:1;}
+.gd::after{content:"✦";position:absolute;bottom:14%;left:3%;font-size:90px;color:rgba(201,148,42,.05);transform:rotate(10deg);}
+.st{position:absolute;inset:0;z-index:2;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 12%,rgba(255,255,255,.8) 0%,transparent 100%),
+    radial-gradient(2px 2px at 45% 8%,rgba(232,184,75,.9) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 82% 18%,rgba(255,255,255,.7) 0%,transparent 100%),
+    radial-gradient(2px 2px at 91% 55%,rgba(232,184,75,.7) 0%,transparent 100%),
+    radial-gradient(1px 1px at 23% 45%,rgba(255,255,255,.5) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 55% 85%,rgba(255,255,255,.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 38% 62%,rgba(232,184,75,.5) 0%,transparent 100%);}
+
+/* SHELL */
+#shell{position:fixed;inset:0;z-index:1;display:flex;flex-direction:column;max-width:430px;margin:0 auto;}
+
+/* HEADER */
+#hdr{flex-shrink:0;padding:14px 20px 10px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(7,9,13,.97),transparent);z-index:10;}
+.li{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:11px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 22px var(--glow);}
+.lt{font-family:"Amiri",serif;font-size:1.7rem;color:var(--gold2);text-shadow:0 0 22px var(--glow);line-height:1;}
+.ls{font-size:.62rem;color:var(--text3);letter-spacing:2px;text-transform:uppercase;display:block;margin-top:1px;}
+.hb{font-family:"Amiri",serif;font-size:.95rem;color:var(--gold);opacity:.78;}
+
+/* CAT TABS */
+#ctabs{flex-shrink:0;display:flex;gap:7px;padding:8px 16px 12px;overflow-x:auto;scrollbar-width:none;}
+#ctabs::-webkit-scrollbar{display:none;}
+.ct{flex-shrink:0;padding:8px 17px;background:var(--bg2);border:1px solid var(--bord2);border-radius:999px;font-family:"Tajawal",sans-serif;font-size:.84rem;font-weight:500;color:var(--text2);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.ct.active{background:linear-gradient(135deg,var(--gold),var(--gold2));border-color:transparent;color:var(--bg0);font-weight:700;box-shadow:0 4px 18px var(--glow);}
+
+/* MODULE GRID */
+#mgrid{flex-shrink:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 16px 12px;max-height:280px;overflow-y:auto;scrollbar-width:none;}
+#mgrid::-webkit-scrollbar{display:none;}
+.mc{background:var(--bg2);border:1px solid var(--bord2);border-radius:var(--r);padding:13px 8px;text-align:center;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;}
+.mc::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--glow),transparent);opacity:0;transition:opacity .25s;}
+.mc:hover::before,.mc.active::before{opacity:1;}
+.mc.active{border-color:var(--gold);box-shadow:0 0 22px var(--glow);}
+.mi{font-size:1.5rem;margin-bottom:5px;line-height:1;}
+.mn{font-size:.68rem;font-weight:600;color:var(--text2);line-height:1.2;}
+.mc.active .mn{color:var(--gold2);}
+
+/* CONTENT */
+#cpanel{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--bord) transparent;padding:4px 16px 20px;}
+#cpanel::-webkit-scrollbar{width:3px;}
+#cpanel::-webkit-scrollbar-thumb{background:var(--bord);border-radius:99px;}
+
+/* BOTTOM NAV */
+#bnav{flex-shrink:0;display:flex;background:rgba(13,18,24,.98);border-top:1px solid var(--bord2);backdrop-filter:blur(20px);padding:8px 0 max(8px,env(safe-area-inset-bottom));}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 0;cursor:pointer;transition:all .2s;background:none;border:none;color:var(--text3);font-family:"Tajawal",sans-serif;}
+.ni{font-size:1.4rem;transition:transform .2s;}
+.nl{font-size:.58rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+.nb.active{color:var(--gold2);}
+.nb.active .ni{transform:translateY(-2px);filter:drop-shadow(0 0 6px var(--glow));}
+
+/* SECTION HEADER */
+.sh{padding:12px 0 14px;animation:fU .3s ease;}
+.st2{font-size:1.2rem;font-weight:700;color:var(--gold2);margin-bottom:5px;}
+.sd{font-size:var(--fsS);color:var(--text3);line-height:1.7;}
+.orn{display:flex;align-items:center;gap:8px;margin:10px 0 16px;}
+.orn::before,.orn::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--bord),transparent);}
+.orn span{font-size:.72rem;color:var(--gold);opacity:.6;letter-spacing:4px;}
+
+/* XCARD */
+.xc{background:var(--bg2);border:1px solid var(--bord2);border-radius:var(--r);margin-bottom:11px;overflow:hidden;transition:border-color .2s;animation:fU .3s ease both;}
+.xc:hover{border-color:var(--bord);}
+.xc.open{border-color:var(--gold);}
+.xh{padding:15px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none;}
+.xn{font-size:1.5rem;min-width:36px;text-align:center;line-height:1;flex-shrink:0;}
+.xi{flex:1;}
+.xt{font-size:var(--fs);font-weight:600;color:var(--text);line-height:1.3;}
+.xs{font-size:var(--fsT);color:var(--text3);margin-top:2px;}
+.xa{font-size:.72rem;color:var(--text3);transition:transform .25s;flex-shrink:0;}
+.xc.open .xa{transform:rotate(180deg);color:var(--gold);}
+.xb{display:none;padding:0 16px 16px;border-top:1px solid var(--bord2);margin:0 16px;}
+.xc.open .xb{display:block;padding-top:14px;}
+
+/* ARABIC */
+.ab{background:var(--bg3);border:1px solid var(--bord);border-radius:var(--rs);padding:15px 17px;margin-bottom:12px;text-align:right;}
+.at{font-family:"Amiri",serif;font-size:1.85rem;line-height:2.1;color:var(--gold3);direction:rtl;margin-bottom:5px;}
+.ap{font-size:var(--fsS);color:var(--teal2);font-style:italic;text-align:left;direction:ltr;margin-bottom:4px;}
+.af{font-size:var(--fsS);color:var(--text2);text-align:left;direction:ltr;line-height:1.6;}
+
+/* DHIKR CARD */
+.dc{background:var(--bg2);border:1px solid var(--bord2);border-radius:var(--r);margin-bottom:11px;overflow:hidden;transition:border-color .2s;cursor:pointer;}
+.dc:hover{border-color:var(--bord);}
+.dc.open{border-color:var(--gold);}
+.dp{padding:14px 16px;}
+.dar{font-family:"Amiri",serif;font-size:1.55rem;color:var(--gold3);direction:rtl;text-align:right;line-height:1.9;margin-bottom:6px;}
+.dfr{font-size:var(--fsS);color:var(--text2);padding-top:7px;border-top:1px solid var(--bord2);line-height:1.5;}
+.dph{font-size:var(--fsT);color:var(--teal2);font-style:italic;margin-top:3px;}
+.dtg{font-size:.72rem;color:var(--text3);float:right;margin-top:-38px;transition:transform .25s;}
+.dc.open .dtg{transform:rotate(180deg);color:var(--gold);}
+.db{display:none;padding:0 16px 14px;border-top:1px solid var(--bord2);margin:0 16px;}
+.dc.open .db{display:block;padding-top:12px;}
+
+/* RICH TEXT */
+.r p{font-size:var(--fs);color:var(--text);line-height:1.9;margin-bottom:11px;}
+.r strong{color:var(--gold2);font-weight:700;}
+.r em{color:var(--teal2);font-style:italic;}
+.r ul,.r ol{padding-left:20px;margin-bottom:11px;}
+.r li{font-size:var(--fs);color:var(--text);line-height:1.9;margin-bottom:5px;}
+.r ul li::marker{color:var(--gold);}
+.r .q{background:var(--bg3);border-left:3px solid var(--gold);padding:11px 15px;border-radius:0 8px 8px 0;margin:8px 0 12px;font-style:italic;color:var(--gold3);font-size:var(--fs);line-height:1.8;}
+.r .note{background:rgba(34,160,190,.08);border:1px solid rgba(34,160,190,.25);border-radius:var(--rs);padding:10px 14px;font-size:var(--fsS);color:var(--teal2);margin:8px 0;line-height:1.6;}
+
+/* SOURCE */
+.src{display:inline-flex;align-items:center;background:rgba(201,148,42,.1);border:1px solid rgba(201,148,42,.25);border-radius:999px;padding:3px 11px;font-size:.72rem;color:var(--gold);margin:4px 4px 4px 0;font-style:italic;}
+
+/* TAGS */
+.tg{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:600;margin:2px;}
+.tga{background:rgba(201,148,42,.12);color:var(--gold2);border:1px solid rgba(201,148,42,.3);}
+.tgt{background:rgba(34,160,190,.1);color:var(--teal2);border:1px solid rgba(34,160,190,.3);}
+.tgr{background:rgba(192,57,43,.1);color:var(--red2);border:1px solid rgba(192,57,43,.3);}
+.tgg{background:rgba(46,192,96,.1);color:var(--green2);border:1px solid rgba(46,192,96,.3);}
+
+/* STEPS */
+.si{display:flex;gap:13px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--bord2);}
+.si:last-child{border-bottom:none;}
+.sn{flex-shrink:0;width:30px;height:30px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:800;color:var(--bg0);}
+.stit{font-size:var(--fs);font-weight:600;color:var(--text);margin-bottom:3px;}
+.sdesc{font-size:var(--fsS);color:var(--text2);line-height:1.7;}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;}
+.tbl th{text-align:left;padding:9px 10px;font-size:.76rem;color:var(--gold2);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--bord);}
+.tbl td{padding:11px 10px;font-size:var(--fsS);color:var(--text);border-bottom:1px solid var(--bord2);}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl td:first-child{font-weight:600;color:var(--gold2);}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:26px;}
+.tl::before{content:"";position:absolute;left:9px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent);}
+.te{position:relative;margin-bottom:19px;}
+.td{position:absolute;left:-21px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--glow);}
+.ty{font-size:.72rem;color:var(--gold);font-weight:700;margin-bottom:2px;}
+.tt{font-size:var(--fs);font-weight:600;color:var(--text);margin-bottom:3px;}
+.tdesc{font-size:var(--fsS);color:var(--text2);line-height:1.6;}
+
+/* NAME GRID */
+.ng{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.nc{background:var(--bg2);border:1px solid var(--bord2);border-radius:var(--rs);padding:12px;cursor:pointer;transition:all .2s;}
+.nc:hover,.nc.open{border-color:var(--gold);}
+.nar{font-family:"Amiri",serif;font-size:1.25rem;color:var(--gold2);text-align:right;margin-bottom:2px;}
+.nfr{font-size:.82rem;font-weight:600;color:var(--text);}
+.nph{font-size:.7rem;color:var(--text3);font-style:italic;}
+.ndet{display:none;margin-top:9px;padding-top:9px;border-top:1px solid var(--bord2);font-size:.82rem;color:var(--text2);line-height:1.7;}
+.nc.open .ndet{display:block;}
+
+/* DOOR/HELL */
+.door{background:var(--bg3);border:1px solid var(--bord);border-radius:var(--rs);padding:14px 15px;margin-bottom:9px;}
+.dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;}
+.dn{font-size:var(--fs);font-weight:700;color:var(--gold2);}
+.dar2{font-family:"Amiri",serif;font-size:1.1rem;color:var(--gold);}
+.dd{font-size:var(--fsS);color:var(--text);line-height:1.7;margin-bottom:4px;}
+.dref{font-size:.76rem;color:var(--text2);font-style:italic;}
+.hell{background:rgba(192,57,43,.06);border:1px solid rgba(192,57,43,.22);border-radius:var(--rs);padding:14px 15px;margin-bottom:9px;}
+.hn{font-size:var(--fs);font-weight:700;color:var(--red2);margin-bottom:4px;}
+.har{font-family:"Amiri",serif;font-size:1.1rem;color:#e07070;}
+.hd{font-size:var(--fsS);color:var(--text2);line-height:1.7;}
+
+/* VOCAB */
+.vc{background:var(--bg2);border:1px solid var(--bord2);border-radius:var(--r);padding:15px;margin-bottom:10px;cursor:pointer;transition:border-color .2s;}
+.vc:hover,.vc.open{border-color:var(--gold);}
+.vch{display:flex;justify-content:space-between;align-items:flex-start;}
+.vw{font-size:var(--fs);font-weight:700;color:var(--gold2);}
+.var{font-family:"Amiri",serif;font-size:1.3rem;color:var(--gold);}
+.vph{font-size:var(--fsT);color:var(--teal2);font-style:italic;margin-top:1px;}
+.vb{display:none;margin-top:11px;padding-top:11px;border-top:1px solid var(--bord2);}
+.vc.open .vb{display:block;}
+.vd{font-size:var(--fsS);color:var(--text);line-height:1.8;margin-bottom:7px;}
+.vu{font-size:var(--fsT);color:var(--teal2);font-style:italic;}
+
+/* SEARCH */
+.srch{width:100%;padding:12px 15px;background:var(--bg2);border:1px solid var(--bord2);border-radius:var(--rs);color:var(--text);font-family:"Tajawal",sans-serif;font-size:var(--fs);outline:none;transition:border-color .2s;margin-bottom:13px;}
+.srch:focus{border-color:var(--gold);}
+.srch::placeholder{color:var(--text3);}
+
+/* CAT LABEL */
+.cl{font-size:.74rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;padding:12px 0 8px;}
+
+/* QUIZ */
+.qbar{height:4px;background:var(--bg3);border-radius:99px;margin-bottom:16px;overflow:hidden;}
+.qfill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:99px;transition:width .4s;}
+.qsc{display:flex;justify-content:space-between;font-size:var(--fsS);color:var(--text3);margin-bottom:16px;}
+.qbox{background:var(--bg2);border:1px solid var(--bord2);border-radius:var(--r);padding:20px;margin-bottom:12px;}
+.qnum{font-size:.74rem;color:var(--text3);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;}
+.qq{font-size:var(--fs);font-weight:600;color:var(--text);line-height:1.7;margin-bottom:16px;}
+.qopts{display:flex;flex-direction:column;gap:9px;}
+.qo{padding:13px 15px;background:var(--bg3);border:1.5px solid var(--bord2);border-radius:var(--rs);cursor:pointer;font-family:"Tajawal",sans-serif;font-size:var(--fsS);color:var(--text);text-align:left;transition:all .2s;}
+.qo:hover:not(:disabled){border-color:var(--gold);color:var(--gold2);}
+.qo.ok2{border-color:var(--green2);background:rgba(46,192,96,.12);color:var(--green2);}
+.qo.ko2{border-color:var(--red2);background:rgba(224,80,64,.1);color:var(--red2);}
+.qo:disabled{cursor:default;opacity:.7;}
+.qfb{display:none;margin-top:12px;padding:11px 14px;border-radius:var(--rs);font-size:var(--fsS);line-height:1.6;}
+.qfb.show{display:block;}
+.qfb.ok{background:rgba(46,192,96,.1);border:1px solid rgba(46,192,96,.3);color:var(--green2);}
+.qfb.ko{background:rgba(224,80,64,.08);border:1px solid rgba(224,80,64,.25);color:#ff8a80;}
+.qnxt{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg0);border:none;border-radius:var(--r);font-family:"Tajawal",sans-serif;font-size:var(--fs);font-weight:700;cursor:pointer;display:none;margin-top:12px;}
+.qnxt.show{display:block;}
+.qres{text-align:center;padding:32px 20px;animation:fU .4s ease;}
+.ri{font-size:3.2rem;margin-bottom:12px;}
+.rtit{font-family:"Amiri",serif;font-size:1.7rem;color:var(--gold2);margin-bottom:8px;}
+.rsc{font-size:2.4rem;font-weight:800;color:var(--gold2);margin-bottom:5px;}
+.rm{font-size:var(--fs);color:var(--text2);margin-bottom:26px;line-height:1.7;}
+.rr{padding:14px 34px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg0);border:none;border-radius:999px;font-family:"Tajawal",sans-serif;font-size:var(--fs);font-weight:700;cursor:pointer;}
+
+/* LOADING */
+#loading{position:fixed;inset:0;z-index:999;background:var(--bg0);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
+.ld-moon{font-size:3rem;animation:spin 3s linear infinite;}
+.ld-txt{font-family:"Amiri",serif;font-size:1.4rem;color:var(--gold2);}
+.ld-sub{font-size:.8rem;color:var(--text3);letter-spacing:2px;}
+@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+@keyframes fU{from{opacity:0;transform:translateY(13px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<!-- Loading screen -->
+<div id="loading">
+  <div class="ld-moon">🌙</div>
+  <div class="ld-txt">نور</div>
+  <div class="ld-sub">CHARGEMENT...</div>
+</div>
+
+<!-- Background -->
+<div id="geo-bg">
+  <div class="gt"></div>
+  <div class="gt2"></div>
+  <div class="gd"></div>
+  <div class="st"></div>
+</div>
+
+<!-- App shell -->
+<div id="shell" style="display:none">
+
+  <!-- Header -->
+  <div id="hdr">
+    <div style="display:flex;align-items:center;gap:11px;">
+      <div class="li">🌙</div>
+      <div><div class="lt">نور</div><span class="ls">Lumière · Islam</span></div>
+    </div>
+    <div class="hb">بِسْمِ اللهِ</div>
+  </div>
+
+  <!-- Category tabs -->
+  <div id="ctabs">
+    <div class="ct active" onclick="switchCat('fondements')">🌱 Fondements</div>
+    <div class="ct" onclick="switchCat('pratique')">🙏 Pratique</div>
+    <div class="ct" onclick="switchCat('coran')">📖 Coran</div>
+    <div class="ct" onclick="switchCat('connaissance')">🌍 Connaissance</div>
+    <div class="ct" onclick="switchCat('audelà')">☁️ Au-delà</div>
+    <div class="ct" onclick="switchCat('spirituel')">💚 Spirituel</div>
+    <div class="ct" onclick="switchCat('histoire')">📅 Histoire</div>
+    <div class="ct" onclick="switchCat('quiz')">🧠 Quiz</div>
+  </div>
+
+  <!-- Module grid -->
+  <div id="mgrid"></div>
+
+  <!-- Content -->
+  <div id="cpanel"></div>
+
+  <!-- Bottom nav -->
+  <div id="bnav">
+    <button class="nb active" onclick="switchCat('fondements')"><span class="ni">🌱</span><span class="nl">Fondements</span></button>
+    <button class="nb" onclick="switchCat('coran')"><span class="ni">📖</span><span class="nl">Coran</span></button>
+    <button class="nb" onclick="switchCat('pratique')"><span class="ni">🙏</span><span class="nl">Pratique</span></button>
+    <button class="nb" onclick="switchCat('spirituel')"><span class="ni">💚</span><span class="nl">Spirituel</span></button>
+    <button class="nb" onclick="switchCat('quiz')"><span class="ni">🧠</span><span class="nl">Quiz</span></button>
+  </div>
+
+</div>
+
+<!-- Load content then init -->
+<script src="content.js"></script>
+<script>
+// ── NAVIGATION ──
+let curCat = "fondements", curMod = "";
+
+function switchCat(cat) {
+  curCat = cat;
+  document.querySelectorAll(".ct").forEach((t,i) => t.classList.toggle("active", Object.keys(CATS)[i] === cat));
+  document.querySelectorAll(".nb").forEach(b => b.classList.toggle("active", (b.getAttribute("onclick")||"").includes(`'${cat}'`)));
+  renderMods(cat);
+  selectMod(CATS[cat].modules[0].id);
+}
+
+function renderMods(cat) {
+  document.getElementById("mgrid").innerHTML = CATS[cat].modules.map(m =>
+    `<div class="mc${m.id===curMod?" active":""}" onclick="selectMod('${m.id}')">
+      <div class="mi">${m.icon}</div>
+      <div class="mn">${m.name}</div>
+    </div>`).join("");
+}
+
+function selectMod(id) {
+  curMod = id;
+  document.querySelectorAll(".mc").forEach(c => c.classList.toggle("active", (c.getAttribute("onclick")||"").includes(`'${id}'`)));
+  const panel = document.getElementById("cpanel");
+  panel.scrollTop = 0;
+  panel.innerHTML = C[id] ? C[id]() : `<div style="text-align:center;padding:40px;color:var(--text3);">🌙 Bientôt...</div>`;
+}
+
+function filterSearch(val) {
+  const q = val.toLowerCase();
+  document.querySelectorAll("[data-search]").forEach(c => c.style.display = c.dataset.search.toLowerCase().includes(q) ? "" : "none");
+}
+
+function toggleCard(el) { el.classList.toggle("open"); }
+function toggleDhikr(el) { el.classList.toggle("open"); }
+function toggleName(el) { el.classList.toggle("open"); }
+function toggleVocab(el) { el.classList.toggle("open"); }
+
+// ── QUIZ ENGINE ──
+let qIdx=0, qScore=0, qAnswered=false, qList=[];
+
+function renderQ() {
+  if (qIdx >= qList.length) {
+    const pct = Math.round(qScore/qList.length*100);
+    return `<div class="qres">
+      <div class="ri">${pct>=80?"🌟":pct>=60?"💪":"📚"}</div>
+      <div class="rtit">${pct>=80?"Masha'Allah !":pct>=60?"Bien joué !":"Continue d'apprendre !"}</div>
+      <div class="rsc">${qScore}/${qList.length}</div>
+      <div class="rm">${pct>=80?"Excellent ! Ta connaissance de l'Islam grandit. Qu'Allah te guide.":pct>=60?"Bonne base ! Explore les modules pour approfondir.":"L'apprentissage est une forme d'adoration. Explore et reviens !"}</div>
+      <button class="rr" onclick="retryQ()">Recommencer 🔄</button>
+    </div>`;
+  }
+  const q = qList[qIdx];
+  return `<div style="animation:fU .3s ease;">
+    <div class="qbar"><div class="qfill" style="width:${qIdx/qList.length*100}%"></div></div>
+    <div class="qsc"><span>Question ${qIdx+1}/${qList.length}</span><span style="color:var(--gold2);font-weight:700;">Score : ${qScore}</span></div>
+    <div class="qbox">
+      <div class="qnum">Question ${qIdx+1}</div>
+      <div class="qq">${q.q}</div>
+      <div class="qopts">${q.opts.map((o,i) => `<button class="qo" onclick="ansQ(this,${i},${q.a},${JSON.stringify(q.e)})">${o}</button>`).join("")}</div>
+      <div class="qfb" id="qfb"></div>
+      <button class="qnxt" id="qnxt" onclick="nextQ()">Question suivante →</button>
+    </div>
+  </div>`;
+}
+
+function ansQ(btn, chosen, correct, expl) {
+  if (qAnswered) return;
+  qAnswered = true;
+  btn.closest(".qopts").querySelectorAll(".qo").forEach((o,i) => {
+    o.disabled = true;
+    if (i === correct) o.classList.add("ok2");
+    else if (i === chosen) o.classList.add("ko2");
+  });
+  if (chosen === correct) qScore++;
+  const fb = document.getElementById("qfb");
+  fb.className = "qfb show " + (chosen===correct?"ok":"ko");
+  fb.innerHTML = (chosen===correct?"✅ Correct ! ":"❌ Incorrect. ") + expl;
+  document.getElementById("qnxt").classList.add("show");
+}
+
+function nextQ() { qIdx++; qAnswered=false; document.getElementById("cpanel").innerHTML=renderQ(); }
+function retryQ() { qList=[...QUIZ].sort(()=>Math.random()-.5); qIdx=0; qScore=0; qAnswered=false; document.getElementById("cpanel").innerHTML=renderQ(); }
+
+// ── INIT ──
+window.addEventListener("load", () => {
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("shell").style.display = "flex";
+  switchCat("fondements");
+});
+</script>
+</body>
+</html>
